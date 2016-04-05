@@ -1,0 +1,98 @@
+/*
+ * time_heap.h
+ *
+ *  Created on: 2016年4月1日
+ *      Author: zjl
+ */
+
+#ifndef TIME_HEAP_H_
+#define TIME_HEAP_H_
+
+#include<iostream>
+#include<netinet/in.h>
+using std::exception;
+
+#define BUFFER_SIZE 64
+class heap_timer;
+struct client_data{
+	sockaddr_in address;
+	int sockfd;
+	char buf [BUFFER_SIZE];
+	heap_timer * timer;
+};
+class heap_timer{
+
+public:
+		time_t expire;
+		void (*cb_func)(client_data);
+		client_data * user_data;
+public:
+		heap_timer(int delay){
+			expire = time(NULL);
+		}
+};
+class heap_heapr{
+	private:
+		heap_timer ** array;
+		int capcity;
+		int cur_size;
+	private:
+		void percolate_down(int hole){
+			heap_timer * tmp = array[hole];
+			int child =0;
+			for(;((hole*2+1)<=(cur_size-1));hole=child){
+				child = hole*2+1;
+				if((child<(cur_size-1)) && (array[child+1]->))
+			}
+		}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif /* TIME_HEAP_H_ */

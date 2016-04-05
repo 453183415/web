@@ -1,0 +1,20 @@
+//============================================================================
+// Name        : test.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include<json/json.h>
+#include<mysql/mysql.h>
+using namespace std;
+
+int main() {
+	Json::Value root;
+	Json::FastWriter fats;
+	root["a"]=("afads");
+	cout << fats.write(root)<<"!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	return 0;
+}

@@ -1,0 +1,13 @@
+16:30:31 **** Build of configuration Debug for project web ****
+make all 
+Building file: ../httpserver/http_conn.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"httpserver/http_conn.d" -MT"httpserver/http_conn.d" -o "httpserver/http_conn.o" "../httpserver/http_conn.cpp"
+In file included from ../httpserver/http_conn.cpp:8:0:
+../httpserver/http_conn.h:28:19: fatal error: locker.h: 没有那个文件或目录
+httpserver/subdir.mk:18: recipe for target 'httpserver/http_conn.o' failed
+compilation terminated.
+make: *** [httpserver/http_conn.o] Error 1
+
+16:30:31 Build Finished (took 535ms)
+

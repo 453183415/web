@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;socketFileClient.cpp&apos; to &apos;testsockclient&apos;" description="Move &apos;socketFileClient.cpp&apos; to &apos;testsockclient&apos;" destination="/testsockclient" element1="/testsocket/socketFileClient.cpp" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1456825132232" updateReferences="true"/>
+</session>

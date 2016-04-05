@@ -1,0 +1,38 @@
+#include<sys/types.h>
+#include<iostream>
+#include<sys/stat.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<fcntl.h>
+#include<sys/file.h>
+#include<stdio.h>
+
+ unsigned long get_filesize(const char * file){
+	 	 struct stat &buf;
+	 	 stat(file,&buf);
+	 	 return buf.st_size;
+}
+
+int main(int argc , char *argv[])
+{
+	int fd;
+	unsigned long size_f;
+	char *buff;
+	if(argv < 2)
+		return 1;
+	for(int i=1;i <argc ; i++){
+		if((fd= open( argv[i],O_RDWR))  == -1){
+			int ret=creat(argv[i], (O_CREAT|O_WRONLY|O_TRUNC))
+					if(ret<0)
+						exit(1);
+			close(fd);
+			return 0;
+		}else{
+						size_f=get_filesize(argv[1]);
+						read(fd,buff,size_f);
+						std::cout<<buff<<std::endl;
+		}
+	}
+
+	return 0;
+}

@@ -1,0 +1,30 @@
+04:25:24 **** Build of configuration Debug for project Server ****
+make all 
+Building file: ../Listen.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Listen.d" -MT"Listen.d" -o "Listen.o" "../Listen.cpp"
+Finished building: ../Listen.cpp
+ 
+Building target: Server
+Invoking: GCC C++ Linker
+g++  -o "Server"  ./Listen.o   
+/usr/lib/gcc/x86_64-linux-gnu/4.9/../../../x86_64-linux-gnu/crt1.o：在函数‘_start’中：
+/build/buildd/glibc-2.19/csu/../sysdeps/x86_64/start.S:118：对‘main’未定义的引用
+collect2: error: ld returned 1 exit status
+makefile:44: recipe for target 'Server' failed
+make: *** [Server] Error 1
+04:27:51 **** Incremental Build of configuration Debug for project Server ****
+make all 
+Building file: ../Listen.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Listen.d" -MT"Listen.d" -o "Listen.o" "../Listen.cpp"
+Finished building: ../Listen.cpp
+ 
+Building target: Server
+Invoking: GCC C++ Linker
+g++  -o "Server"  ./Listen.o   
+/usr/lib/gcc/x86_64-linux-gnu/4.9/../../../x86_64-linux-gnu/crt1.o：在函数‘_start’中：
+/build/buildd/glibc-2.19/csu/../sysdeps/x86_64/start.S:118：对‘main’未定义的引用
+collect2: error: ld returned 1 exit status
+makefile:44: recipe for target 'Server' failed
+make: *** [Server] Error 1

@@ -1,0 +1,36 @@
+/*
+ * bolck_queue.h
+ *
+ *  Created on: 2016年3月19日
+ *      Author: zjl
+ */
+
+#ifndef LOG_QUEUE_H_
+#define LOG_QUEUE_H_
+#include<iostream>
+#include<stdio.h>
+#include<pthread.h>
+#include<sys/time.h>
+#include<stdlib.h>
+template <class T>
+class log_queue{
+private:
+	pthread_mutex_t *Mutex;
+	pthread_cond_t *Cond;
+	T *array;
+	int max_size;
+	int ftont;
+	int back;
+public:
+	log_queue(int size = 1000):max_size(size){
+		if(max_size <0){
+			exit(0);
+		}
+	}
+	~log_queue();
+
+};
+
+
+
+#endif /* LOG_QUEUE_H_ */

@@ -1,0 +1,21 @@
+/*
+ * Response.cpp
+ *
+ *  Created on: 2015年10月27日
+ *      Author: zjl
+ */
+#include "Response.h"
+
+#include"../base/myError.h"
+#include"Response.h"
+#include"StaticResponseState.h"
+#include"DynamicResponseState.h"
+#include<stdexcept>
+Response::Response(int fd,std::string name,std::string cgiargs, bool isStc){
+	if(isStc){
+		state=new StaticResponseState(fd,name);
+	}
+}
+
+
+

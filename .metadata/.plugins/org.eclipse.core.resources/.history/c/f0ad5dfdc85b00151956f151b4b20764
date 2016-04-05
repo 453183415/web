@@ -1,0 +1,37 @@
+/*
+ * cat.cpp
+ *
+ *  Created on: 2015年9月16日
+ *      Author: zjl
+ */
+#include<iostream>
+#include<sys/unistd.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<stdio.h>
+#include<sys/types.h>
+
+unsigned long get_filesize(const char* file){
+	struct stat buf;
+	stat(file,&buf);
+	return buf.st_size;
+}
+
+int main(int argc, char* argv[])
+{
+	int fd;
+	char buff[2048];
+
+	unsigned long size_f;
+	fd=open(argv[1],O_RDONLY);
+	size_f=get_filesize(argv[1]);
+	char *buf= new char [size_f];
+	//read(fd,buff,size_f);
+	read(fd,buf,size_f);
+	std::cout << size_f<<std::endl;
+	std::cout<<buf<<std::endl;
+	std::cout << buff;
+	delete []buf;
+	return 0;
+}
+

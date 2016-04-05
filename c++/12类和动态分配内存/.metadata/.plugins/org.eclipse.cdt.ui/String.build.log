@@ -1,0 +1,15 @@
+01:23:05 **** Incremental Build of configuration Debug for project String ****
+make all 
+Building file: ../demo.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"demo.d" -MT"demo.d" -o "demo.o" "../demo.cpp"
+Finished building: ../demo.cpp
+ 
+Building target: String
+Invoking: GCC C++ Linker
+g++  -o "String"  ./String1.o ./demo.o   
+Finished building target: String
+ 
+
+01:23:06 Build Finished (took 1s.111ms)
+

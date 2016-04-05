@@ -1,0 +1,20 @@
+03:16:00 **** Incremental Build of configuration Debug for project complex0 ****
+make all 
+Building file: ../complex0.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"complex0.d" -MT"complex0.d" -o "complex0.o" "../complex0.cpp"
+Finished building: ../complex0.cpp
+ 
+Building file: ../demo.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"demo.d" -MT"demo.d" -o "demo.o" "../demo.cpp"
+Finished building: ../demo.cpp
+ 
+Building target: complex0
+Invoking: GCC C++ Linker
+g++  -o "complex0"  ./complex0.o ./demo.o   
+Finished building target: complex0
+ 
+
+03:16:00 Build Finished (took 728ms)
+

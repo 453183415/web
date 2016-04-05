@@ -1,0 +1,31 @@
+/*
+ * test1.cpp
+ *
+ *  Created on: 2015年8月3日
+ *      Author: zjl
+ */
+#include"ZSql.h"
+#include<mysql/mysql.h>
+#include<iostream>
+#include<string>
+#include<json/json.h>
+using namespace std;
+
+
+int main()
+{
+	ZSql * sql=ZSql::get_instance();
+	if(!sql->ZSql_init("zjl","test","localhost","zjl")){
+		std::cout<<"sql start connection error"<<std::endl;
+		cout<<"yes"<<endl;
+	}else{
+		cout<<"no"<<endl;
+		exit(0);
+	}
+
+	std::string sqlq="INSERT INTO `test`.`db` (`sd`, `name`) VALUES ('2', 'sad');";
+	mysql_real_query(sql->getMysql(),sqlq.c_str(),sqlq.length());
+
+
+	return 0;
+}

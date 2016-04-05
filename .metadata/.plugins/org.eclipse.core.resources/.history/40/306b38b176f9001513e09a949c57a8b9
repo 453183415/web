@@ -1,0 +1,61 @@
+/*
+ * CGI.cpp
+ *
+ *  Created on: 2015年11月5日
+ *      Author: zjl
+ */
+
+#include<sys/socket.h>
+#include<sys/types.h>
+#include<netinet/in.h>
+#include<arpa/inet.h>
+#include<assert.h>
+#include<stdio.h>
+#include<unistd.h>
+#include<errno.h>
+#include<string.h>
+#include<fcntl.h>
+#include<stdlib.h>
+#include<sys/epoll.h>
+#include<signal.h>
+#include<sys/stat.h>
+#include<sys/wait.h>
+
+#include"../syn_asy_processpool/processpool.h"
+
+class cgi_con{
+	private:
+		static const int BUFFER_SIZE = 1024;
+		static int m_epollfd;
+		int m_sockfd;
+		sockaddr_in m_client_addr;
+		char m_buf[BUFFER_SIZE];
+		int m_read_idx;
+	public:
+		cgi_con(){
+
+		}
+		virtual ~ cgi_con(){
+
+		}
+		void init(int epollfd,int sockfd,const sockaddr_in & client_addr){
+			m_epollfd = epollfd;
+			m_sockfd=sockfd;
+			m_client_addr = client_addr;
+			memset(&m_client_addr,'\0',sizeof(m_client_addr));
+			m_read_idx = 0;
+		}
+		void process(){
+			int idx = 0;
+			int ret = -1;
+			while(true){
+				idx = m_read_idx;
+				ret = recv(m_sockfd,m_buf+idx,BUFFER_SIZE-1-idx,0);
+				if(ret < 0){
+					if(errno != EAGAIN){
+						removefd(m_epollfd,m_sockfd);
+					}
+				}
+			}
+		}
+};

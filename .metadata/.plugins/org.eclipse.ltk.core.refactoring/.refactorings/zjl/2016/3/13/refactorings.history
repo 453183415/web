@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;zjl/handle_request&apos; to &apos;handle&apos;" description="Rename resource &apos;handle_request&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="handle_request" name="handle" stamp="1458700224838" updateReferences="true"/>
+</session>

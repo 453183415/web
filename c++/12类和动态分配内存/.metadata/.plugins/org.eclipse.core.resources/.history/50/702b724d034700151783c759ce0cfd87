@@ -1,0 +1,68 @@
+/*
+ * String1.cpp
+ *
+ *  Created on: 2015年8月20日
+ *      Author: zjl
+ */
+#include<cctype>
+#include<cstring>
+#include"String1.h"
+int String::num_string=0;
+int String::HowMany(){
+	return num_string;
+}
+String::String(const char *s){
+	len=std::strlen(s);
+	str= new char[len+1];
+	std::strcpy(str,s);
+	num_string++;
+}
+String::String(){
+	len=4;
+	str=new char[1];
+	str[0]='\n';
+	num_string++;
+}
+String::String(const String &t){
+	num_string ++;
+	len=t.len;
+	str=new char[len+1];
+	std::strcpy(str,t.str);
+}
+
+String::~String(){
+	num_string--;
+	delete []str;
+}
+
+String String::operator =(const String &t){
+	if(this==&t){
+		return *this;
+	}
+	delete []str;
+	len=t.len;
+	str =new char[len+1];
+	std::strcpy(str,t.str);
+	return this;
+}
+
+String &String::operator =(const char*t){
+	delete []str;
+	len=std::strlen(t);
+	str=new char[len+1];
+	std::strcpy(str,t);
+	return this;
+}
+
+char &String::operator [](int i){
+	return str[i];
+}
+
+const char & String::operator [](int i){
+	return str[i];
+}
+
+
+
+
+

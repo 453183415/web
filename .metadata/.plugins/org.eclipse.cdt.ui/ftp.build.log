@@ -1,0 +1,107 @@
+16:12:26 **** Incremental Build of configuration Debug for project ftp ****
+make all 
+Building file: ../response/byeBase.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"response/byeBase.d" -MT"response/byeBase.d" -o "response/byeBase.o" "../response/byeBase.cpp"
+In file included from ../response/byeBase.h:10:0,
+                 from ../response/byeBase.cpp:7:
+../response/../response/responseBase.h:12:59: error: ‘string’ in namespace ‘std’ does not name a type
+  responseBase(const int &confd,const int &port,const std::string &ip,
+                                                           ^
+../response/../response/responseBase.h:13:25: error: ‘string’ in namespace ‘std’ does not name a type
+              const std::string &path,const std::string &commond);
+                         ^
+../response/../response/responseBase.h:13:49: error: ‘string’ in namespace ‘std’ does not name a type
+              const std::string &path,const std::string &commond);
+                                                 ^
+../response/../response/responseBase.h:25:7: error: ‘string’ in namespace ‘std’ does not name a type
+  std::string ip;
+       ^
+../response/../response/responseBase.h:26:7: error: ‘string’ in namespace ‘std’ does not name a type
+  std::string path;
+       ^
+../response/../response/responseBase.h:27:7: error: ‘string’ in namespace ‘std’ does not name a type
+  std::string sourceIp;
+       ^
+../response/../response/responseBase.h:28:7: error: ‘string’ in namespace ‘std’ does not name a type
+  std::string commond;
+       ^
+In file included from ../response/byeBase.cpp:7:0:
+../response/byeBase.h:14:51: error: ‘string’ in namespace ‘std’ does not name a type
+  byeBase(const int &fd,const int &port,const std::string &ip,
+response/subdir.mk:45: recipe for target 'response/byeBase.o' failed
+                                                   ^
+../response/byeBase.h:15:15: error: ‘string’ in namespace ‘std’ does not name a type
+    const std::string &path,const std::string &commond);
+               ^
+../response/byeBase.h:15:39: error: ‘string’ in namespace ‘std’ does not name a type
+    const std::string &path,const std::string &commond);
+                                       ^
+../response/byeBase.h:18:25: error: ‘string’ in namespace ‘std’ does not name a type
+  bool logout(const std::string &sourceip);
+                         ^
+../response/byeBase.h:19:7: error: ‘string’ in namespace ‘std’ does not name a type
+  std::string getSourceip();
+       ^
+../response/byeBase.cpp:9:59: error: ‘string’ in namespace ‘std’ does not name a type
+ byeBase::byeBase(const int &fd,const int &port,const std::string &ip,
+                                                           ^
+../response/byeBase.cpp:10:33: error: ‘string’ in namespace ‘std’ does not name a type
+                      const std::string &path,
+                                 ^
+../response/byeBase.cpp:11:33: error: ‘string’ in namespace ‘std’ does not name a type
+                      const std::string &commond):confd(fd),
+                                 ^
+In file included from ../response/byeBase.h:10:0,
+                 from ../response/byeBase.cpp:7:
+../response/../response/responseBase.h: In constructor ‘byeBase::byeBase(const int&, const int&, const int&, const int&, const int&)’:
+../response/../response/responseBase.h:23:6: error: ‘int responseBase::confd’ is private
+  int confd;
+      ^
+../response/byeBase.cpp:11:50: error: within this context
+                      const std::string &commond):confd(fd),
+                                                  ^
+../response/byeBase.cpp:11:50: error: class ‘byeBase’ does not have any field named ‘confd’
+In file included from ../response/byeBase.h:10:0,
+                 from ../response/byeBase.cpp:7:
+../response/../response/responseBase.h:24:6: error: ‘int responseBase::port’ is private
+  int port;
+      ^
+../response/byeBase.cpp:12:22: error: within this context
+                      port(port),path(path),commond(commond)
+                      ^
+../response/byeBase.cpp:12:22: error: class ‘byeBase’ does not have any field named ‘port’
+../response/byeBase.cpp:12:33: error: class ‘byeBase’ does not have any field named ‘path’
+                      port(port),path(path),commond(commond)
+                                 ^
+../response/byeBase.cpp:12:44: error: class ‘byeBase’ does not have any field named ‘commond’
+                      port(port),path(path),commond(commond)
+                                            ^
+../response/byeBase.cpp:12:59: error: no matching function for call to ‘responseBase::responseBase()’
+                      port(port),path(path),commond(commond)
+                                                           ^
+In file included from ../response/byeBase.h:10:0,
+                 from ../response/byeBase.cpp:7:
+../response/../response/responseBase.h:12:2: note: candidate: responseBase::responseBase(const int&, const int&, const int&, const int&, const int&)
+  responseBase(const int &confd,const int &port,const std::string &ip,
+  ^
+../response/../response/responseBase.h:12:2: note:   candidate expects 5 arguments, 0 provided
+../response/../response/responseBase.h:10:7: note: candidate: responseBase::responseBase(const responseBase&)
+ class responseBase{
+       ^
+../response/../response/responseBase.h:10:7: note:   candidate expects 1 argument, 0 provided
+../response/byeBase.cpp: At global scope:
+../response/byeBase.cpp:16:33: error: ‘string’ in namespace ‘std’ does not name a type
+ bool byeBase::logout(const std::string &sourceIp){
+                                 ^
+../response/byeBase.cpp:21:6: error: ‘string’ in namespace ‘std’ does not name a type
+ std::string byeBase::getSourceip(){
+      ^
+../response/byeBase.cpp: In member function ‘virtual void byeBase::Execute()’:
+../response/byeBase.cpp:27:24: error: ‘getSourceip’ was not declared in this scope
+  if(logout(getSourceip())){
+                        ^
+make: *** [response/byeBase.o] Error 1
+
+16:12:26 Build Finished (took 275ms)
+

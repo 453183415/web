@@ -1,0 +1,13 @@
+16:12:28 **** Incremental Build of configuration Debug for project lidachui ****
+make all 
+Building file: ../b.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"b.d" -MT"b.d" -o "b.o" "../b.cpp"
+../b.cpp:1:1: error: ‘ksjdjfgsd’ does not name a type
+ ksjdjfgsd
+ ^
+make: *** [b.o] Error 1
+subdir.mk:27: recipe for target 'b.o' failed
+
+16:12:28 Build Finished (took 73ms)
+

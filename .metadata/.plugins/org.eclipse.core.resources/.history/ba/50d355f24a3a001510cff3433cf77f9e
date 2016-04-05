@@ -1,0 +1,33 @@
+/*
+ * test1.cpp
+ *
+ *  Created on: 2015年8月3日
+ *      Author: zjl
+ */
+#include"ZSql.h"
+#include<mysql/mysql.h>
+#include<iostream>
+#include<string>
+#include<json/json.h>
+using namespace std;
+//using namespace ZSql;
+
+int main()
+{
+	Json::Value root;
+		Json::FastWriter fats;
+		root["a"]=("afads");
+	ZSql db;// ZSql();
+
+	db.setDbIp("localhost");
+	db.setUserName("root");
+	db.setDbPasswd("zjl");
+	db.setDbName("test");
+	if(db.regsit()){
+		cout<<"yes"<<endl;
+	}else{
+		cout<<"no"<<endl;
+	}
+	cout << fats.write(root)<<"!!!Hello World!!!" << endl;
+	return 0;
+}

@@ -1,0 +1,15 @@
+20:39:03 **** Incremental Build of configuration Debug for project c++ ****
+make all 
+Building file: ../usetime.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"usetime.d" -MT"usetime.d" -o "usetime.o" "../usetime.cpp"
+Finished building: ../usetime.cpp
+ 
+Building target: c++
+Invoking: GCC C++ Linker
+g++  -o "c++"  ./mytime0.o ./usetime.o   
+Finished building target: c++
+ 
+
+20:39:04 Build Finished (took 420ms)
+

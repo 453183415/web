@@ -1,0 +1,30 @@
+/*
+ * read.h
+ *
+ *  Created on: 2016年3月22日
+ *      Author: zjl
+ */
+
+#ifndef READ_H_
+#define READ_H_
+#include<sys/types.h>
+#include<fcntl.h>
+#include<dirent.h>
+#include<sys/stat.h>
+#include<stdlib.h>
+#include<pthread.h>
+#include<iostream>
+#include"read_queue.h"
+
+class reader{
+	private:
+		static reader *reade;
+		pthread_mutex_t *mutex;
+		read_queue<std::map>*rd_queue;
+
+};
+
+
+
+
+#endif /* READ_H_ */

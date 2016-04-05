@@ -1,0 +1,22 @@
+/*
+ * bolck_queue.h
+ *
+ *  Created on: 2016年3月19日
+ *      Author: zjl
+ */
+
+#ifndef LOG_QUEUE_H_
+#define LOG_QUEUE_H_
+#include<iostream>
+#include<stdio.h>
+#include<pthread.h>
+#include<sys/time.h>
+
+template <class T>
+class qeue{
+
+};
+
+
+
+#endif /* LOG_QUEUE_H_ */

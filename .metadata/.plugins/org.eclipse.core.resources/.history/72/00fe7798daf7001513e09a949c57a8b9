@@ -1,0 +1,61 @@
+/*
+ * handle_noactivite.cpp
+ *
+ *  Created on: 2015年10月1日
+ *      Author: zjl
+ */
+
+
+#include<sys/types.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+#include<arpa/inet.h>
+#include<assert.h>
+#include<stdio.h>
+#include<signal.h>
+#include<unistd.h>
+#include<error.h>
+#include<fcntl.h>
+#include<stdlib.h>
+#include<sys/epoll.h>
+#include<pthread.h>
+#include"list_time.h"
+
+#define FD_LIMIT 65536
+#define MAX_EVENT_NUMBER 1024
+#define TIMELOT 5
+
+static int pipe[2];
+static t_timer timer_list;
+
+static int epollfd;
+
+int setnonblock(int fd){
+	int old_option = fcntl(fd, F_GETFL);
+	int new_option = old_option | O_NONBLOCK;
+	fcntl(fd,F_SETFL , new_option);
+	return old_option;
+}
+
+void addfd(int epollfd, int fd){
+	epoll_event event;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

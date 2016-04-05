@@ -1,0 +1,130 @@
+02:36:33 **** Incremental Build of configuration Debug for project complex0 ****
+make all 
+Building target: complex0
+Invoking: GCC C++ Linker
+g++  -o "complex0"  ./complex0.o ./demo.o   
+./demo.o：在函数‘main’中：
+/home/zjl/workspace/c++/11使用类/complex0/Debug/../demo.cpp:16：对‘COMPLEX::operator>>(std::istream&, COMPLEX::complex0 const&)’未定义的引用
+collect2: error: ld returned 1 exit status
+make: *** [complex0] Error 1
+makefile:44: recipe for target 'complex0' failed
+03:02:33 **** Incremental Build of configuration Debug for project complex0 ****
+make all 
+Building file: ../complex0.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"complex0.d" -MT"complex0.d" -o "complex0.o" "../complex0.cpp"
+Finished building: ../complex0.cpp
+ 
+Building file: ../demo.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"demo.d" -MT"demo.d" -o "demo.o" "../demo.cpp"
+Finished building: ../demo.cpp
+ 
+Building target: complex0
+Invoking: GCC C++ Linker
+g++  -o "complex0"  ./complex0.o ./demo.o   
+Finished building target: complex0
+ 
+03:02:47 **** Incremental Build of configuration Debug for project complex0 ****
+make all 
+make: Nothing to be done for 'all'.
+03:04:05 **** Incremental Build of configuration Debug for project complex0 ****
+make all 
+Building file: ../complex0.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"complex0.d" -MT"complex0.d" -o "complex0.o" "../complex0.cpp"
+Finished building: ../complex0.cpp
+ 
+Building target: complex0
+Invoking: GCC C++ Linker
+g++  -o "complex0"  ./complex0.o ./demo.o   
+Finished building target: complex0
+ 
+03:06:18 **** Incremental Build of configuration Debug for project complex0 ****
+make all 
+Building file: ../complex0.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"complex0.d" -MT"complex0.d" -o "complex0.o" "../complex0.cpp"
+Finished building: ../complex0.cpp
+ 
+Building file: ../demo.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"demo.d" -MT"demo.d" -o "demo.o" "../demo.cpp"
+../demo.cpp: In function ‘int main()’:
+../demo.cpp:18:35: error: expected primary-expression before ‘/’ token
+   cout <<"complex conjugate is"<< /c<<"\n";
+                                   ^
+subdir.mk:21: recipe for target 'demo.o' failed
+make: *** [demo.o] Error 1
+03:07:10 **** Incremental Build of configuration Debug for project complex0 ****
+make all 
+Building file: ../complex0.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"complex0.d" -MT"complex0.d" -o "complex0.o" "../complex0.cpp"
+In file included from ../complex0.cpp:7:0:
+../complex0.h:33:41: error: ‘COMPLEX::complex0 COMPLEX::complex0::operator~(const COMPLEX::complex0&) const’ must take ‘void’
+   complex0 operator ~(complex0 const &t)const;
+                                         ^
+../complex0.cpp:25:50: error: ‘COMPLEX::complex0 COMPLEX::complex0::operator~(const COMPLEX::complex0&) const’ must take ‘void’
+  complex0 complex0::operator ~(complex0 const &t)const{
+                                                  ^
+make: *** [complex0.o] Error 1
+subdir.mk:21: recipe for target 'complex0.o' failed
+03:13:46 **** Incremental Build of configuration Debug for project complex0 ****
+make all 
+Building file: ../complex0.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"complex0.d" -MT"complex0.d" -o "complex0.o" "../complex0.cpp"
+In file included from ../complex0.cpp:7:0:
+../complex0.h:33:48: error: non-member function ‘COMPLEX::complex0 COMPLEX::operator~(const COMPLEX::complex0&)’ cannot have cv-qualifier
+   friend complex0 operator ~(complex0 const &t)const;
+                                                ^
+../complex0.cpp:25:40: error: non-member function ‘COMPLEX::complex0 COMPLEX::operator~(const COMPLEX::complex0&)’ cannot have cv-qualifier
+  complex0 operator ~(complex0 const &t)const{
+                                        ^
+../complex0.cpp: In function ‘COMPLEX::complex0 COMPLEX::operator~(const COMPLEX::complex0&)’:
+../complex0.cpp:26:20: error: ‘real’ was not declared in this scope
+    return complex0(real,-imag);
+                    ^
+../complex0.cpp:26:26: error: ‘imag’ was not declared in this scope
+    return complex0(real,-imag);
+                          ^
+../complex0.cpp:27:2: warning: control reaches end of non-void function [-Wreturn-type]
+  }
+  ^
+subdir.mk:21: recipe for target 'complex0.o' failed
+make: *** [complex0.o] Error 1
+03:14:32 **** Incremental Build of configuration Debug for project complex0 ****
+make all 
+Building file: ../complex0.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"complex0.d" -MT"complex0.d" -o "complex0.o" "../complex0.cpp"
+Finished building: ../complex0.cpp
+ 
+Building file: ../demo.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"demo.d" -MT"demo.d" -o "demo.o" "../demo.cpp"
+Finished building: ../demo.cpp
+ 
+Building target: complex0
+Invoking: GCC C++ Linker
+g++  -o "complex0"  ./complex0.o ./demo.o   
+Finished building target: complex0
+ 
+03:16:00 **** Incremental Build of configuration Debug for project complex0 ****
+make all 
+Building file: ../complex0.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"complex0.d" -MT"complex0.d" -o "complex0.o" "../complex0.cpp"
+Finished building: ../complex0.cpp
+ 
+Building file: ../demo.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"demo.d" -MT"demo.d" -o "demo.o" "../demo.cpp"
+Finished building: ../demo.cpp
+ 
+Building target: complex0
+Invoking: GCC C++ Linker
+g++  -o "complex0"  ./complex0.o ./demo.o   
+Finished building target: complex0
+ 

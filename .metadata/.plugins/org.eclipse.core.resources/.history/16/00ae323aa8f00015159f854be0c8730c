@@ -1,0 +1,47 @@
+/*
+ * handle_request.h
+ *
+ *  Created on: 2016年3月23日
+ *      Author: zjl
+ */
+
+#ifndef HANDLE_REQUEST_H_
+#define HANDLE_REQUEST_H_
+#include<sys/socket.h>
+#include<dirent.h>
+#include<unistd.h>
+#include<sys/stat.h>
+#include<sys/types.h>
+#include<netinet/in.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<arpa/inet.h>
+#include<fcntl.h>
+#include<sys/wait.h>
+#include<iostream>
+#include<signal.h>
+
+bool handle_request(const int & fd,const std::string &file_path){
+	struct stat file;
+	DIR *DP;
+	struct dirent *file_dir;
+	struct sockaddr client;
+	int length=sizeof(client);
+	std::string ip;
+	getpeername(fd,&client,&length);
+	int file_fd;
+	if((file_dir=opendir(file_path.c_str())==NULL )){
+		if((file_fd=open(file_path.c_str(),O_RDONLY))<0)
+		return false;
+	}
+
+	if(file_dir!=NULL){
+
+	}
+}
+
+
+
+
+#endif /* HANDLE_REQUEST_H_ */

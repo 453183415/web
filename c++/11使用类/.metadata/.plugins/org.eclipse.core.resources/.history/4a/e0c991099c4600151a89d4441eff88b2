@@ -1,0 +1,50 @@
+/*
+ * complex0.cpp
+ *
+ *  Created on: 2015年8月20日
+ *      Author: zjl
+ */
+#include"complex0.h"
+namespace COMPLEX{
+	complex0::complex0(double real,double imag){
+		this->real=real;
+		this->imag=imag;
+	}
+	complex0 complex0::operator +(const complex0 &t)const{
+		return complex0(real+t.real,imag+t.imag);
+	}
+	complex0 complex0::operator -(const complex0 &t)const{
+			return complex0(real-t.real,imag-t.imag);
+	}
+	complex0 complex0::operator *(const complex0 &t)const{
+			return complex0(real*t.real-imag*t.imag,real*t.imag+t.real*imag);
+	}/*
+	complex0 complex0::operator =(const complex0 &t)const{
+			return complex0(real=t.real,imag=t.imag);
+	}*/
+	complex0 complex0::operator ^(complex0 const &t)const{
+			return complex0(real,-imag);
+	}
+	complex0 complex0::operator *(double n)const{
+		return complex0(real*n,imag*n);
+	}
+	std::istream & operator >>(std::istream &is,complex0 &t){
+		std::cout<<"real:";
+		double n;
+		is>>n;
+		t.real=n;
+		//is>>t.set_real();
+		std::cout<<"\n";
+		std::cout<<"imaginary";
+		is>>t.set_imag();
+		std::cout<<"\n";
+		return is;
+	}
+	std::ostream & operator <<(std::ostream &os,complex0 const &t){
+		os<<"("<<t.real<<","<<t.imag<<"i)";
+		return os;
+	}
+}
+
+
+

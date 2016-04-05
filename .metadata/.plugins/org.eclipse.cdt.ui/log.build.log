@@ -1,0 +1,35 @@
+16:12:28 **** Build of configuration Debug for project log ****
+make all 
+Building file: ../log.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"log.d" -MT"log.d" -o "log.o" "../log.cpp"
+In file included from ../log.cpp:7:0:
+../log.h: In static member function ‘static log* log::get_instance()’:
+../log.h:65:22: error: invalid use of member ‘log::mutex’ in static member function
+   pthread_mutex_lock(mutex);
+                      ^
+../log.h:26:19: note: declared here
+  pthread_mutex_t* mutex;
+                   ^
+../log.h:68:24: error: invalid use of member ‘log::mutex’ in static member function
+   pthread_mutex_unlock(mutex);
+                        ^
+../log.h:26:19: note: declared here
+  pthread_mutex_t* mutex;
+                   ^
+../log.h: In member function ‘bool log::init_log(const string&, int)’:
+../log.h:126:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int i=0,j=0;i<log_name.size();i++){
+                   ^
+../log.h: In member function ‘void log::writ_log(int, std::vector<std::__cxx11::basic_string<char> >)’:
+../log.h:173:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int i=0,j=0;i<new_day.size();i++){
+                    ^
+../log.h:193:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int i=0;i<format.size();i++){
+               ^
+subdir.mk:21: recipe for target 'log.o' failed
+make: *** [log.o] Error 1
+
+16:12:28 Build Finished (took 591ms)
+

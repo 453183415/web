@@ -1,0 +1,26 @@
+!SESSION 2015-09-05 20:34:55.922 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2015-09-05 20:35:15.746
+!MESSAGE DDMS files not found: /home/zjl/下载/android-sdk-linux/platform-tools/adb /home/zjl/下载/android-sdk-linux/platform-tools/hprof-conv 
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2015-09-05 20:35:15.775
+!MESSAGE DDMS files not found: /home/zjl/下载/android-sdk-linux/platform-tools/adb /home/zjl/下载/android-sdk-linux/platform-tools/hprof-conv 
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-09-05 20:36:35.054
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.epp.internal.logging.aeri.ui.log.ProblemsDatabaseUpdateJob
+!SESSION 2015-09-05 20:38:09.074 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-09-05 20:40:32.974
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.epp.internal.logging.aeri.ui.log.ProblemsDatabaseUpdateJob

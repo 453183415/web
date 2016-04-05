@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;locker.h&apos; to &apos;locker&apos;" description="Move &apos;locker.h&apos; to &apos;locker&apos;" destination="locker" element1="locker.h" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1459653748215" updateReferences="true"/>
+</session>

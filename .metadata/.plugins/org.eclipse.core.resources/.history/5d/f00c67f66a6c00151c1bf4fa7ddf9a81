@@ -1,0 +1,20 @@
+/*
+ * rm.cpp
+ *
+ *  Created on: 2015年10月7日
+ *      Author: zjl
+ */
+
+#include<sys/types.h>
+#include<unistd.h>
+#include<fcntl.h>
+#include<dirent.h>
+#include<sys/stat.h>
+#include<stdio.h>
+int main(int argc , char*argv[])
+{
+	remove(argv[1]);
+	return 0;
+}
+
+

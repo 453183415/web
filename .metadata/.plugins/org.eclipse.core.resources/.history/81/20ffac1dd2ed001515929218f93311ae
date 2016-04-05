@@ -1,0 +1,39 @@
+/*
+ * log.cpp
+ *
+ *  Created on: 2016年3月19日
+ *      Author: zjl
+ */
+#include"log.h"
+void *fun(void *args){
+	std::vector<std::string> s;
+	for(int i=0;i<20;i++){
+		s.push_back("sdjkfg");
+	}
+	for(int i=0;i<20;i++){
+
+	}
+	for(int i=0; i<20;i++){
+		log::get_instance()->writ_log(i%3,s);
+	}
+	return NULL;
+}
+
+int main()
+{
+	printf("adsgd");
+
+	pthread_t pid;
+	if(!log::get_instance()->init_log("/workspace/log/mylog.log",8192,1000))
+		printf("adsgd");
+	sleep(2);
+	for(int i=0 ;i<3;i++){
+		pthread_create(&pid,NULL,fun,NULL);
+		pthread_join(pid,NULL);
+	}
+	sleep(20);
+	log::get_instance()->clear();
+}
+
+
+

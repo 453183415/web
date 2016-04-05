@@ -1,0 +1,56 @@
+!SESSION 2015-08-18 20:17:10.123 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2015-08-18 20:17:38.660
+!MESSAGE DDMS files not found: /home/zjl/下载/android-sdk-linux/platform-tools/adb /home/zjl/下载/android-sdk-linux/platform-tools/hprof-conv 
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2015-08-18 20:17:38.660
+!MESSAGE DDMS files not found: /home/zjl/下载/android-sdk-linux/platform-tools/adb /home/zjl/下载/android-sdk-linux/platform-tools/hprof-conv 
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-08-18 20:20:32.453
+!MESSAGE Indexed 'c++' (0 sources, 0 headers) in 0.005 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!SESSION 2015-09-05 20:33:12.956 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-09-05 20:33:28.577
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.cdt.ui 4 0 2015-09-05 20:33:44.059
+!MESSAGE Error in CDT UI during reconcile
+!STACK 1
+C Model Exception: C Model Status [Element usetime.cpp does not exist.]
+	at org.eclipse.cdt.internal.core.model.CElement.newNotPresentException(CElement.java:484)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.makeConsistent(TranslationUnit.java:573)
+	at org.eclipse.cdt.internal.core.model.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:62)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.execute(CModelOperation.java:341)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.run(CModelOperation.java:607)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.runOperation(CModelOperation.java:635)
+	at org.eclipse.cdt.internal.core.model.WorkingCopy.reconcile(WorkingCopy.java:362)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:63)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:87)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:349)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+!SUBENTRY 1 org.eclipse.cdt.core 4 969 2015-09-05 20:33:44.067
+!MESSAGE Element usetime.cpp does not exist.
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2015-09-05 20:33:48.538
+!MESSAGE DDMS files not found: /home/zjl/下载/android-sdk-linux/platform-tools/adb /home/zjl/下载/android-sdk-linux/platform-tools/hprof-conv 
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2015-09-05 20:33:48.576
+!MESSAGE DDMS files not found: /home/zjl/下载/android-sdk-linux/platform-tools/adb /home/zjl/下载/android-sdk-linux/platform-tools/hprof-conv 
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-09-05 20:34:52.237
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.epp.internal.logging.aeri.ui.log.ProblemsDatabaseUpdateJob

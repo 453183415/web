@@ -1,0 +1,48 @@
+/*
+ * log.cpp
+ *
+ *  Created on: 2016年3月19日
+ *      Author: zjl
+ */
+#include"log.h"
+void *fun(void *args){
+	std::vector<std::string> s(1);
+//	for(int i=0;i<100;i++){
+		s.push_back("aaaaaaaaaaaaaaaaaaaa"
+				"ssssssssssssssssssss"
+				"ssssssssss"
+				);
+
+//	}
+
+//	for(int i=0; i<1000;i++){
+		log::get_instance()->writ_log(1,s);
+
+//	}
+	return NULL;
+}
+
+int main()
+{
+	struct timeval timenow,timenow1;
+//	time_t t=time(NULL);
+	gettimeofday(&timenow,NULL);
+	std::cout<<timenow.tv_sec<<std::endl;
+	pthread_t pid;
+	log * _log=log::get_instance();
+	_log->init_log("/workspace/log/mylog.log",1000);
+//	sleep(2);
+
+//	for(int i=0 ;i<1000;i++){
+		pthread_create(&pid,NULL,fun,NULL);
+		pthread_join(pid,NULL);
+//}
+//	sleep(2);
+	log::get_instance()->clear();
+	gettimeofday(&timenow1,NULL);
+	std::cout<<timenow1.tv_sec<<std::endl;
+	std::cout<<timenow1.tv_sec-timenow.tv_sec<<std::endl;
+}
+
+
+

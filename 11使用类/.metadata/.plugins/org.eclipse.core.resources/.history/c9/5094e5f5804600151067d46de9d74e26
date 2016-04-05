@@ -1,0 +1,107 @@
+/*
+ * Vectory.cpp
+
+ *
+ *  Created on: 2015年8月19日
+ *      Author: zjl
+ */
+#include"Vectory.h"
+#include<cmath>
+using std::cout;
+using std::cin;
+ namespace VECTOR{
+
+	const double Rad_to_deg=45.0/atan(1.0);
+	Vectory::Vectory(){
+		x=y=0.0;
+		mode=RECT;
+}
+	Vectory::Vectory(double n1,double n2,Mode form){
+		mode =form;
+		if(mode == RECT){
+			x=n1;
+			y=n2;
+		}else if( form == POL){
+			x=set_x(n1,n2);
+			y=set_y(n2,n1);
+		}else{
+			cout<<"Incorrect 3rd argument to Vector() --";
+			cout<< "Vector set to 0 \n";
+			x=y=0.0;
+			mode = RECT;
+		}
+	}
+	Vectory::~Vectory(){
+
+	}
+	double Vectory::set_x(double const &t1,double const &t2){
+		return t1*cos(t2);
+	}
+	double Vectory::set_y(double const &t2,double const &t1){
+		return t1*sin(t2);
+	}
+	void Vectory::reset(  double n1,double n2,Mode form){
+		mode =form;
+				if(mode == RECT){
+					x=n1;
+					y=n2;
+				}else if( form == POL){
+					x=set_x(n1,n2);
+					y=set_y(ni,n2);
+				}else{
+					cout<<"Incorrect 3rd argument to Vector() --";
+					cout<< "Vector set to 0 \n";
+					x=y=0.0;
+					mode = RECT;
+				}
+	}
+	double Vectory::angval()const{
+		if(x==0&&y==0){
+			return 0.0;
+		}else{
+		return atan(x/y);
+		}
+
+	}
+	void Vectory::polar_mode(){
+		mode=POL;
+	}
+	void Vectory::rect_mode(){
+		mode=RECT;
+	}
+double Vectory::magval()const{
+		return sqrt(x*x+y*y);
+}
+
+Vectory Vectory::operator *(double &n)const{
+	return Vectory(x*n,y*n);
+}
+Vectory Vectory::operator +(const Vectory &t)const{
+	return Vectory(x+t.x,y+t.x);
+}
+Vectory Vectory::operator -(const Vectory &t)const{
+	return Vectory(x-t.x,y-t.y);
+}
+Vectory Vectory::operator -()const{
+	return Vectory(-x,-y);
+}/*
+Vectory operator*(double n, const Vectory &t){
+	return Vectory(t.x,t.y);
+}
+Vectory operator*(const Vectory &t,double n){
+	return t*n;
+}*/
+std::ostream & operator <<(std::ostream &os, const Vectory &t){
+	if(t.mode==Vectory::RECT){
+		os<<"(x,y)=("<<t.x<<"，"<<t.y<<")";
+	}else if(t.mode==Vectory::POL){
+		os<<"(m,a)=("<<t.angval()<<","<<t.magval()<<")";
+	}else{
+		os<<"Vectory objiect mode is invalid";
+	}
+	return os;
+}
+}
+
+
+

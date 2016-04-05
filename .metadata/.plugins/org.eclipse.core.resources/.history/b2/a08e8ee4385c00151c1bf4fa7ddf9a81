@@ -1,0 +1,27 @@
+/*
+ * ls.cpp
+ *
+ *  Created on: 2015年9月16日
+ *      Author: zjl
+ */
+#include<sys/types.h>
+#include<unistd.h>
+#include<sys/stat.h>
+#include<stdio.h>
+#include<fcntl.h>
+#include<dirent.h>
+#include<iostream>
+
+
+int main(int argc ,char * argv[])
+{
+	char *buf;
+	DIR *dir;
+	struct dirent *dir_buf;
+	buf=	getcwd(NULL,0);
+	dir=opendir(buf);
+	while((dir_buf = readdir(dir))!=NULL)
+		std::cout<<dir_buf->d_name<<std::endl;
+	return 0;
+}
+

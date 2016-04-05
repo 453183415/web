@@ -1,0 +1,17 @@
+16:12:24 **** Incremental Build of configuration Debug for project exercise ****
+make all 
+Building target: exercise
+Invoking: GCC C++ Linker
+g++  -o "exercise"  ./pthread/example.o  ./SOCKET/echieve-address.o  ./1-1.o   
+./1-1.o：在函数‘main’中：
+makefile:46: recipe for target 'exercise' failed
+/home/zjl/workspace/exercise/Debug/../1-1.cpp:16: `main'被多次定义
+./pthread/example.o:/home/zjl/workspace/exercise/Debug/../pthread/example.cpp:23：第一次在此定义
+./pthread/example.o：在函数‘main’中：
+/home/zjl/workspace/exercise/Debug/../pthread/example.cpp:26：对‘pthread_create’未定义的引用
+/home/zjl/workspace/exercise/Debug/../pthread/example.cpp:35：对‘pthread_join’未定义的引用
+collect2: error: ld returned 1 exit status
+make: *** [exercise] Error 1
+
+16:12:24 Build Finished (took 438ms)
+

@@ -1,0 +1,21 @@
+/*
+ * 1-1.cpp
+ *
+ *  Created on: 2015年11月2日
+ *      Author: zjl
+ */
+#include<iostream>
+int main()
+{
+	int i=-1;
+	char a="kjasdh";
+	if(i<0)
+	{
+		std::cout<<a<<std::endl;
+		return -2;
+	}
+	return 0;
+}
+
+
+

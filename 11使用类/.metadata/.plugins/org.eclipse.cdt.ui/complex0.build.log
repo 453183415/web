@@ -1,0 +1,13 @@
+02:32:35 **** Incremental Build of configuration Debug for project complex0 ****
+make all 
+Building target: complex0
+Invoking: GCC C++ Linker
+g++  -o "complex0"  ./complex0.o ./demo.o   
+./demo.o：在函数‘main’中：
+/home/zjl/workspace/c++/11使用类/complex0/Debug/../demo.cpp:16：对‘COMPLEX::operator>>(std::istream&, COMPLEX::complex0 const&)’未定义的引用
+collect2: error: ld returned 1 exit status
+makefile:44: recipe for target 'complex0' failed
+make: *** [complex0] Error 1
+
+02:32:35 Build Finished (took 276ms)
+

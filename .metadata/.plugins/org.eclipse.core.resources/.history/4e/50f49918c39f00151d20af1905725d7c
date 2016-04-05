@@ -1,0 +1,22 @@
+/*
+ * Log.h
+ *
+ *  Created on: 2015年12月11日
+ *      Author: zjl
+ */
+
+#ifndef LOG_H_
+#define LOG_H_
+
+class Log{
+	Log(const std::string &content);
+	virtual void write()=0;
+	std::string getTime();
+	~Log(){
+
+	}
+};
+
+
+
+#endif /* LOG_H_ */

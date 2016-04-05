@@ -1,0 +1,19 @@
+/*
+ * 1-1.cpp
+ *
+ *  Created on: 2015年11月2日
+ *      Author: zjl
+ */
+#include<iostream>
+int mian()
+{
+	int i=-1;
+	if(i<0)
+	{
+		return -1;
+	}
+	return 0;
+}
+
+
+

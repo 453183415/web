@@ -1,0 +1,95 @@
+/*
+ * udp_client_s.cpp
+ *
+ *  Created on: 2016年1月23日
+ *      Author: zjl
+ */
+
+#include"../unix.h"
+
+#define MAXSIZE 1024
+
+void udp_cli(FILE *,  int ,  const struct sockaddr *,  socklen_t);
+char * sock_ntop(const struct sockaddr *sa, socklen_t salen)
+{
+	static char str[128];
+	switch(sa->sa_family){
+	case AF_INET: {
+		struct sockaddr_in * sin= (struct sockaddr_in *)sa;
+		if(inet_ntop(AF_INET, &sin->sin_addr, str ,sizeof(str))  == NULL)
+		return NULL;
+		return str;
+	}
+	#ifdef 	IPV6
+	case AF_INET6:{
+	struct sockaddr_in6*sin6 = (struct sockaddr_in6 *) sa;
+	if(inet_ntop(AF_INET6, &sin6->sin6_addr, str , sizeof(str))  == NULL)
+		return NULL;
+		return str;
+	}
+	#endif
+	#ifdef AF_UNIX
+	case AF_UNIX : {
+		struct sockaddr_un * unp = (struct sockaddr_un *) sa ;
+		if( unp->sun_path[0] == 0)
+			strcpy(str,"(no pathname bound)");
+		else
+			snprintf(str,sizeof(str), "%s", unp->sun_path);
+		return str;
+	}
+	#endif
+	#ifdef HAVE_SOCKADDR_dL_STRUCT
+	case AF_LINK :{
+		struct sockaddr_dl * sdl = (struct sockaddr_dl * )sa;
+		if (sdl->sdl_nllen > 0)
+			snprintf(str,sizeof(str), "%s", sdl_sdl->Nnlen, &sdl->sdl_data[0]);
+		else
+			snprintf(str,sizeo(str),"AF_LINK,index=%d",sdl->sdl_index);
+		return str;
+	}
+	#endif
+	default:
+		snprintf(str, sizeof(str), "sock_ntop_host: unknow AF_XXX:%d, len", sa->sa_family,salen);
+		return str;
+	}
+	return NULL;
+}
+
+int main(int argc , char** argv)
+{
+	int sockfd;
+	struct sockaddr_in clientaddr;
+	if(argc!= 2)
+		return -1;
+	sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+	clientaddr.sin_family = AF_INET;
+	clientaddr.sin_port = htons(7);
+	inet_pton(AF_INET, argv[1], &clientaddr.sin_addr);
+	udp_cli(stdin, sockfd, (struct sockaddr *)&clientaddr, sizeof(clientaddr));
+	return 0;
+}
+
+void udp_cli(FILE* fp,int sockfd, const struct sockaddr*cliaddr, socklen_t len){
+	int n;
+	struct sockaddr *pre;
+	socklen_t plen;
+	pre= (struct sockaddr *)malloc(len);
+	char sendline[MAXSIZE], recvline[MAXSIZE+1];
+	while( fgets( sendline,MAXSIZE, fp) !=NULL){
+		sendto(sockfd,sendline,strlen(sendline), 0,  cliaddr, len);
+		bzero(&sendline,sizeof(sendline));
+		plen=len;
+		n=recvfrom(sockfd,recvline,MAXSIZE, 0,pre,&plen);
+		if(len!=plen || memcmp(cliaddr,pre,len) !=0 ){
+//			std::cout<<pre->sa_data<<plen<<std::endl;
+			printf("replay from %s (ignored)",sock_ntop(pre,plen));
+			continue;
+		}
+		recvline[n]='\0';
+		fputs(recvline,stdout);
+		bzero(recvline,sizeof(recvline));
+	}
+
+
+
+}

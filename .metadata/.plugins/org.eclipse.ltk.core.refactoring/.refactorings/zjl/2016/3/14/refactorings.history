@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Move &apos;user.h&apos; to &apos;user&apos;" description="Move &apos;user.h&apos; to &apos;user&apos;" destination="user" element1="user.h" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1459044856227" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;zjl/chat/chat_server&apos; to &apos;chat_server.cpp&apos;" description="Rename resource &apos;chat_server&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="chat/chat_server" name="chat_server.cpp" stamp="1459349699215" updateReferences="true"/>
+</session>

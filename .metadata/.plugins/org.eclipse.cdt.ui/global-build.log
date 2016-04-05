@@ -1,0 +1,227 @@
+20:52:59 **** Incremental Build of configuration Debug for project log ****
+make all 
+Building file: ../log.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"log.d" -MT"log.d" -o "log.o" "../log.cpp"
+Finished building: ../log.cpp
+ 
+Building target: log
+Invoking: GCC C++ Linker
+g++ -Lcrypto -o "log"  ./log.o   -lpthread
+Finished building target: log
+ 
+16:12:21 **** Incremental Build of configuration Debug for project C++ ****
+make all 
+make: Nothing to be done for 'all'.
+16:12:24 **** Incremental Build of configuration Debug for project exercise ****
+make all 
+Building target: exercise
+Invoking: GCC C++ Linker
+g++  -o "exercise"  ./pthread/example.o  ./SOCKET/echieve-address.o  ./1-1.o   
+./1-1.o：在函数‘main’中：
+makefile:46: recipe for target 'exercise' failed
+/home/zjl/workspace/exercise/Debug/../1-1.cpp:16: `main'被多次定义
+./pthread/example.o:/home/zjl/workspace/exercise/Debug/../pthread/example.cpp:23：第一次在此定义
+./pthread/example.o：在函数‘main’中：
+/home/zjl/workspace/exercise/Debug/../pthread/example.cpp:26：对‘pthread_create’未定义的引用
+/home/zjl/workspace/exercise/Debug/../pthread/example.cpp:35：对‘pthread_join’未定义的引用
+collect2: error: ld returned 1 exit status
+make: *** [exercise] Error 1
+16:12:26 **** Incremental Build of configuration Debug for project ftp ****
+make all 
+Building file: ../response/byeBase.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"response/byeBase.d" -MT"response/byeBase.d" -o "response/byeBase.o" "../response/byeBase.cpp"
+In file included from ../response/byeBase.h:10:0,
+                 from ../response/byeBase.cpp:7:
+../response/../response/responseBase.h:12:59: error: ‘string’ in namespace ‘std’ does not name a type
+  responseBase(const int &confd,const int &port,const std::string &ip,
+                                                           ^
+../response/../response/responseBase.h:13:25: error: ‘string’ in namespace ‘std’ does not name a type
+              const std::string &path,const std::string &commond);
+                         ^
+../response/../response/responseBase.h:13:49: error: ‘string’ in namespace ‘std’ does not name a type
+              const std::string &path,const std::string &commond);
+                                                 ^
+../response/../response/responseBase.h:25:7: error: ‘string’ in namespace ‘std’ does not name a type
+  std::string ip;
+       ^
+../response/../response/responseBase.h:26:7: error: ‘string’ in namespace ‘std’ does not name a type
+  std::string path;
+       ^
+../response/../response/responseBase.h:27:7: error: ‘string’ in namespace ‘std’ does not name a type
+  std::string sourceIp;
+       ^
+../response/../response/responseBase.h:28:7: error: ‘string’ in namespace ‘std’ does not name a type
+  std::string commond;
+       ^
+In file included from ../response/byeBase.cpp:7:0:
+../response/byeBase.h:14:51: error: ‘string’ in namespace ‘std’ does not name a type
+  byeBase(const int &fd,const int &port,const std::string &ip,
+response/subdir.mk:45: recipe for target 'response/byeBase.o' failed
+                                                   ^
+../response/byeBase.h:15:15: error: ‘string’ in namespace ‘std’ does not name a type
+    const std::string &path,const std::string &commond);
+               ^
+../response/byeBase.h:15:39: error: ‘string’ in namespace ‘std’ does not name a type
+    const std::string &path,const std::string &commond);
+                                       ^
+../response/byeBase.h:18:25: error: ‘string’ in namespace ‘std’ does not name a type
+  bool logout(const std::string &sourceip);
+                         ^
+../response/byeBase.h:19:7: error: ‘string’ in namespace ‘std’ does not name a type
+  std::string getSourceip();
+       ^
+../response/byeBase.cpp:9:59: error: ‘string’ in namespace ‘std’ does not name a type
+ byeBase::byeBase(const int &fd,const int &port,const std::string &ip,
+                                                           ^
+../response/byeBase.cpp:10:33: error: ‘string’ in namespace ‘std’ does not name a type
+                      const std::string &path,
+                                 ^
+../response/byeBase.cpp:11:33: error: ‘string’ in namespace ‘std’ does not name a type
+                      const std::string &commond):confd(fd),
+                                 ^
+In file included from ../response/byeBase.h:10:0,
+                 from ../response/byeBase.cpp:7:
+../response/../response/responseBase.h: In constructor ‘byeBase::byeBase(const int&, const int&, const int&, const int&, const int&)’:
+../response/../response/responseBase.h:23:6: error: ‘int responseBase::confd’ is private
+  int confd;
+      ^
+../response/byeBase.cpp:11:50: error: within this context
+                      const std::string &commond):confd(fd),
+                                                  ^
+../response/byeBase.cpp:11:50: error: class ‘byeBase’ does not have any field named ‘confd’
+In file included from ../response/byeBase.h:10:0,
+                 from ../response/byeBase.cpp:7:
+../response/../response/responseBase.h:24:6: error: ‘int responseBase::port’ is private
+  int port;
+      ^
+../response/byeBase.cpp:12:22: error: within this context
+                      port(port),path(path),commond(commond)
+                      ^
+../response/byeBase.cpp:12:22: error: class ‘byeBase’ does not have any field named ‘port’
+../response/byeBase.cpp:12:33: error: class ‘byeBase’ does not have any field named ‘path’
+                      port(port),path(path),commond(commond)
+                                 ^
+../response/byeBase.cpp:12:44: error: class ‘byeBase’ does not have any field named ‘commond’
+                      port(port),path(path),commond(commond)
+                                            ^
+../response/byeBase.cpp:12:59: error: no matching function for call to ‘responseBase::responseBase()’
+                      port(port),path(path),commond(commond)
+                                                           ^
+In file included from ../response/byeBase.h:10:0,
+                 from ../response/byeBase.cpp:7:
+../response/../response/responseBase.h:12:2: note: candidate: responseBase::responseBase(const int&, const int&, const int&, const int&, const int&)
+  responseBase(const int &confd,const int &port,const std::string &ip,
+  ^
+../response/../response/responseBase.h:12:2: note:   candidate expects 5 arguments, 0 provided
+../response/../response/responseBase.h:10:7: note: candidate: responseBase::responseBase(const responseBase&)
+ class responseBase{
+       ^
+../response/../response/responseBase.h:10:7: note:   candidate expects 1 argument, 0 provided
+../response/byeBase.cpp: At global scope:
+../response/byeBase.cpp:16:33: error: ‘string’ in namespace ‘std’ does not name a type
+ bool byeBase::logout(const std::string &sourceIp){
+                                 ^
+../response/byeBase.cpp:21:6: error: ‘string’ in namespace ‘std’ does not name a type
+ std::string byeBase::getSourceip(){
+      ^
+../response/byeBase.cpp: In member function ‘virtual void byeBase::Execute()’:
+../response/byeBase.cpp:27:24: error: ‘getSourceip’ was not declared in this scope
+  if(logout(getSourceip())){
+                        ^
+make: *** [response/byeBase.o] Error 1
+16:12:28 **** Incremental Build of configuration Debug for project lidachui ****
+make all 
+Building file: ../b.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"b.d" -MT"b.d" -o "b.o" "../b.cpp"
+../b.cpp:1:1: error: ‘ksjdjfgsd’ does not name a type
+ ksjdjfgsd
+ ^
+make: *** [b.o] Error 1
+subdir.mk:27: recipe for target 'b.o' failed
+16:12:28 **** Build of configuration Debug for project log ****
+make all 
+Building file: ../log.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"log.d" -MT"log.d" -o "log.o" "../log.cpp"
+In file included from ../log.cpp:7:0:
+../log.h: In static member function ‘static log* log::get_instance()’:
+../log.h:65:22: error: invalid use of member ‘log::mutex’ in static member function
+   pthread_mutex_lock(mutex);
+                      ^
+../log.h:26:19: note: declared here
+  pthread_mutex_t* mutex;
+                   ^
+../log.h:68:24: error: invalid use of member ‘log::mutex’ in static member function
+   pthread_mutex_unlock(mutex);
+                        ^
+../log.h:26:19: note: declared here
+  pthread_mutex_t* mutex;
+                   ^
+../log.h: In member function ‘bool log::init_log(const string&, int)’:
+../log.h:126:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int i=0,j=0;i<log_name.size();i++){
+                   ^
+../log.h: In member function ‘void log::writ_log(int, std::vector<std::__cxx11::basic_string<char> >)’:
+../log.h:173:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int i=0,j=0;i<new_day.size();i++){
+                    ^
+../log.h:193:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int i=0;i<format.size();i++){
+               ^
+subdir.mk:21: recipe for target 'log.o' failed
+make: *** [log.o] Error 1
+16:12:30 **** Incremental Build of configuration Debug for project myweb ****
+make all 
+make: Nothing to be done for 'all'.
+16:12:31 **** Incremental Build of configuration Debug for project server ****
+make all 
+make: Nothing to be done for 'all'.
+16:12:32 **** Incremental Build of configuration Debug for project testsockclient ****
+make all 
+Building file: ../socketFileClient.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"socketFileClient.d" -MT"socketFileClient.d" -o "socketFileClient.o" "../socketFileClient.cpp"
+Finished building: ../socketFileClient.cpp
+ 
+Building target: testsockclient
+Invoking: GCC C++ Linker
+g++  -o "testsockclient"  ./socketFileClient.o   
+Finished building target: testsockclient
+ 
+16:12:34 **** Incremental Build of configuration Debug for project testsocket ****
+make all 
+Building file: ../socketFileServer.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"socketFileServer.d" -MT"socketFileServer.d" -o "socketFileServer.o" "../socketFileServer.cpp"
+Finished building: ../socketFileServer.cpp
+ 
+Building target: testsocket
+Invoking: GCC C++ Linker
+g++  -o "testsocket"  ./socketFileServer.o   
+Finished building target: testsocket
+ 
+16:12:35 **** Incremental Build of configuration Debug for project zjl ****
+make all 
+Building file: ../test1.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test1.d" -MT"test1.d" -o "test1.o" "../test1.cpp"
+Finished building: ../test1.cpp
+ 
+Building target: zjl
+Invoking: GCC C++ Linker
+g++  -o "zjl"  ./test1.o  /usr/lib/libmysqlclient.so /usr/lib/libjson_linux-gcc-4.9.1_libmt.a 
+Finished building target: zjl
+ 
+16:30:31 **** Build of configuration Debug for project web ****
+make all 
+Building file: ../httpserver/http_conn.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"httpserver/http_conn.d" -MT"httpserver/http_conn.d" -o "httpserver/http_conn.o" "../httpserver/http_conn.cpp"
+In file included from ../httpserver/http_conn.cpp:8:0:
+../httpserver/http_conn.h:28:19: fatal error: locker.h: 没有那个文件或目录
+httpserver/subdir.mk:18: recipe for target 'httpserver/http_conn.o' failed
+compilation terminated.
+make: *** [httpserver/http_conn.o] Error 1

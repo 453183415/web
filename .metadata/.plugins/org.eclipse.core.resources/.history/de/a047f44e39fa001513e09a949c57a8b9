@@ -1,0 +1,29 @@
+/*
+ * pthreadpool.h
+ *
+ *  Created on: 2015年11月4日
+ *      Author: zjl
+ */
+
+#ifndef PTHREADPOOL_H_
+#define PTHREADPOOL_H_
+
+#include<list>
+#include<stdio.h>
+#include<exception>
+#include<pthread.h>
+
+#include"../locker/locker.h"
+
+template<class T>
+class pthreadpool{
+	private:
+		int m_thread_number;
+		int m_max_request;
+		pthread_t * m_threads;
+		std::list<T*> m_worequeue;
+};
+
+
+
+#endif /* PTHREADPOOL_H_ */

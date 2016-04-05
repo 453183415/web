@@ -1,0 +1,43 @@
+/*
+ * read.h
+ *
+ *  Created on: 2016年3月22日
+ *      Author: zjl
+ */
+
+#ifndef READ_H_
+#define READ_H_
+#include<sys/types.h>
+#include<fcntl.h>
+#include<dirent.h>
+#include<sys/stat.h>
+#include<stdlib.h>
+#include<pthread.h>
+#include<iostream>
+#include"read_queue.h"
+
+class reader{
+	private:
+		static reader *reade;
+		pthread_mutex_t *mutex;
+		read_queue<std::map<int,std::string >>*rd_queue;
+	public:
+		reader*get_instance();
+		static void *handle(void *args);
+		void insert(const int fd, const std::string &path);//向队列中插入要处理的文件和文件描述符
+		bool read_init();
+	private:
+		virtual ~reader()
+		reader();
+		void *handle_queue();//处理队列;
+		void clear();
+};
+reader*reader::reade=0;
+reader::reader(){
+	mutex=new pthread_mutex_t;
+	pthread_mutex_init(mutex,NULL);
+	rd_queue=NULL;
+}
+
+
+#endif /* READ_H_ */

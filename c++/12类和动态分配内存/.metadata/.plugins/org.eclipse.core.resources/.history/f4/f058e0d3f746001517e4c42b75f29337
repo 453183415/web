@@ -1,0 +1,15 @@
+/*
+ * String1.cpp
+ *
+ *  Created on: 2015年8月20日
+ *      Author: zjl
+ */
+#include<cctype>
+#include<cstring>
+String::num_string=0;
+int String::HowMany(){
+	return num_string;
+}
+
+
+

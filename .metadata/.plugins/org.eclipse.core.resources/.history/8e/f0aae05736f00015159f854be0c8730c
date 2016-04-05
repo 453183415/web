@@ -1,0 +1,31 @@
+/*
+ * write.h
+ *
+ *  Created on: 2016年3月22日
+ *      Author: zjl
+ */
+
+#ifndef WRITE_H_
+#define WRITE_H_
+
+#include<sys/types.h>
+#include<iostream>
+#include<unistd.h>
+#include<stdlib.h>
+#include<stdio.h>
+#include<pthread.h>
+#include<read_queue.h>
+#include"../../log/log.h"
+class writ{
+	private:
+		pthread_mutex_t *mutex;
+		static writ *instance;
+		read_queue<std::map<int,std::string>>*queue_w;
+	public:
+		static writ *get_instance();
+
+};
+
+
+
+#endif /* WRITE_H_ */

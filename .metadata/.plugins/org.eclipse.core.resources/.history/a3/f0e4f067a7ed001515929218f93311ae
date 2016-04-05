@@ -1,0 +1,83 @@
+/*
+ * log.h
+ *
+ *  Created on: 2016年3月19日
+ *      Author: zjl
+ */
+
+#ifndef LOG_H_
+#define LOG_H_
+#include<iostream>
+#include<pthread.h>
+#include<string.h>
+#include<stdio.h>
+#include<vector>
+#include<stdlib.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include"log_queue.h"
+
+class log{
+private:
+	static  log * instance;
+	pthread_mutex_t* mutex;
+	std::string dir_name;
+	std::string log_name;
+	char * buf;
+	int buf_size;
+	int file_fd;
+	log_queue<std::string> * queue_log;
+public:
+	static log * get_instance();
+	static void *clear_pthread(void *args);
+	bool init_log(const std::string &file_name, int log_buf_size=8192, int max_queue =1000   );
+	void writ_log(int level, const std::vector format,...);
+	void clear();
+private:
+	log();
+	virtual ~log();
+	void *async_write_log();
+};
+log::log(){
+	mutex = new pthread_mutex_t;
+	pthread_mutex_init(mutex,NULL);
+}
+
+log::~log(){
+	if(file_fd > 0){
+		close(fd);
+	}
+	pthread_mutex_destroy(mutex);
+	if(mutex != NULL)
+	{
+		delete mutex;
+	}
+}
+static log * log:: get_instance(){
+		if(instance == NULL){
+			return instance = new log();
+		}
+		return instance;
+}
+
+static void log::*clear_pthread(void *args){
+	log::get_instance()->async_write_log();
+	return NULL;
+}
+
+static log* log::get_instance(){
+	if(instance==NULL){
+		return instance = new log();
+	}
+	return instance;
+}
+
+bool log::init_log(const std::string &file_name, int log_buf_size, int max_queue){
+	if(max_queue>= 1){
+		queue_log = new log_queue<std:::string> (max_queue);
+	}
+}
+
+
+
+#endif /* LOG_H_ */

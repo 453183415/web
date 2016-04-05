@@ -1,0 +1,70 @@
+/*
+ * socketFileClient.cpp
+ *
+ *  Created on: 2016年3月1日
+ *      Author: zjl
+ */
+#include<sys/socket.h>
+#include<sys/types.h>
+#include<netinet/in.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<arpa/inet.h>
+#include<unistd.h>
+#include<sys/signal.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<sys/wait.h>
+void handleSig(int signal);
+int main(int argc , char **argv)
+{
+	if(argc <4){
+		printf("error");
+		exit(0);
+	}
+	char serverFileName[256],filename[256],buf[1024];
+	int sockfd,fd;
+	ssize_t n;
+	bzero(&serverFileName,256);
+	bzero(&filename,256);
+	strncpy(filename,argv[3],strlen(argv[3]));
+	strncpy(serverFileName,argv[2],strlen(argv[2]));
+
+	struct sockaddr_in clientaddr;
+	bzero(&clientaddr,sizeof(clientaddr));
+	clientaddr.sin_family= AF_INET;
+	clientaddr.sin_port = htons(8000);
+	inet_pton(AF_INET,argv[1],&clientaddr.sin_addr);
+	sockfd=socket(AF_INET,SOCK_STREAM,0);
+	signal(SIGCHLD,handleSig);
+	int ret =connect(sockfd,(struct sockaddr *)&clientaddr,sizeof(clientaddr));
+
+	if(ret<0){
+		printf("connect error");
+		exit(0);
+	}
+	fd=open(filename,O_CREAT|O_RDWR|O_TRUNC);
+	printf("%s\n%s\n %d",filename,serverFileName,fd);
+		write(sockfd,serverFileName,sizeof(serverFileName));
+		if(fd<0){
+		//		creat(filename,(O_CREAT|O_WRONLY|O_RDONLY));
+				printf("file create error");
+				exit(0);
+			}
+
+	while((n=read(sockfd,buf,1024))<0){
+					lseek(fd,0,SEEK_END);
+					write(fd,buf,sizeof(buf));
+					bzero(&buf,1024);
+	}
+
+
+}
+void handleSig(int signal){
+	pid_t pid;
+	int stat;
+	while((pid= waitpid(-1,&stat,WNOHANG))>0);
+	exit(0);
+}
+

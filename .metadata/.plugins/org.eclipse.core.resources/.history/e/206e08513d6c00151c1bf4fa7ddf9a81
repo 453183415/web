@@ -1,0 +1,127 @@
+/*
+ * ls.cpp
+ *
+ *  Created on: 2015年9月16日
+ *      Author: zjl
+ */
+#include<sys/types.h>
+#include<unistd.h>
+#include<sys/stat.h>
+#include<stdio.h>
+#include<fcntl.h>
+#include<dirent.h>
+#include<iostream>
+#include<pwd.h>
+#include<grp.h>
+#include<stdlib.h>
+#include<time.h>
+#include<string.h>
+void put_file_info(struct stat buf,const char * name)
+{
+	char  buf_time[64];
+	struct passwd *psw;//获取文件所有者
+	struct group *gup;//获取文件所属组
+	//打印文件类型；d为目录文件；l指向另一个文件；s 套接字文件；b 块设备文件 ；c 字符设备文件；
+	//p 管道文件；- 普通文件
+	if(S_ISLNK(buf.st_mode)){
+		printf("l");
+	}else if(S_ISREG(buf.st_mode)){
+		printf("-");
+	}else if(S_ISDIR(buf.st_mode)){
+		printf("d");
+	}else if(S_ISCHR(buf.st_mode)){
+		printf("c");
+	}else if(S_ISBLK(buf.st_mode)){
+		printf("b");
+	}else if(S_ISFIFO(buf.st_mode)){
+		printf("f");
+	}else if(S_ISSOCK(buf.st_mode)){
+		printf("s");
+	}
+	//打印文件权限 r 可读；w可写；x可执行；无以上权限为 -
+	if(buf.st_mode & S_IRUSR){
+		printf("r");
+	}else{
+		printf("-");
+	}
+	if(buf.st_mode & S_IWUSR){
+			printf("w");
+		}else{
+			printf("-");
+		}
+	if(buf.st_mode & S_IXUSR){
+			printf("x");
+		}else{
+			printf("-");
+		}
+	//打印用户组权限 r 可读；w可写；x可执行；无以上权限为 -
+	if(buf.st_mode & S_IRGRP){
+				printf("r");
+			}else{
+				printf("-");
+			}
+	if(buf.st_mode & S_IWGRP){
+				printf("w");
+			}else{
+					printf("-");
+			}
+	if(buf.st_mode & S_IXGRP){
+				printf("x");
+			}else{
+				printf("-");
+			}
+	//打印其他用户权限 r 可读；w可写；x可执行；无以上权限为 -
+	if(buf.st_mode & S_IROTH){
+				printf("r");
+			}else{
+				printf("-");
+			}
+	if(buf.st_mode & S_IWOTH){
+				printf("w");
+			}else{
+				printf("-");
+			}
+	if(buf.st_mode & S_IXOTH){
+				printf("x");
+			}else{
+				printf("-");
+			}
+	printf("    ");
+	//获取用户名和组名
+	psw = getpwuid(buf.st_uid);
+	gup = getgrgid(buf.st_gid);
+	std::cout<<buf.st_nlink<<"  ";
+	//std::cout<<psw->pw_name;
+	//printf("%-8s",psw->pw_name);
+	std::cout<<gup->gr_name<<"  ";
+	std::cout<<buf.st_size<<"  ";//打印文件大小
+	strcpy(buf_time,ctime(&buf.st_mtime));
+	buf_time[strlen(buf_time)-1]='\0';
+	printf(" %s",buf_time);
+
+}
+
+int main(int argc ,char * argv[])
+{
+	char *buf;
+	DIR *dir;
+	struct dirent *dir_buf;
+	buf=	getcwd(NULL,0);
+	dir=opendir(buf);
+	while((dir_buf = readdir(dir))!=NULL){
+		int fd;
+		char *name;
+		name=dir_buf->d_name;
+		struct stat buff;
+		if(1)
+		put_file_info(buff,name);
+		fd=stat(name,&buff);
+		//std::cout<<buff.st_mode;
+		printf("         ");
+		if(name[0]!='.')
+		std::cout<<dir_buf->d_name<<std::endl;
+		printf("\n");
+	}
+	return 0;
+}
+

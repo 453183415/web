@@ -1,0 +1,15 @@
+16:12:35 **** Incremental Build of configuration Debug for project zjl ****
+make all 
+Building file: ../test1.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test1.d" -MT"test1.d" -o "test1.o" "../test1.cpp"
+Finished building: ../test1.cpp
+ 
+Building target: zjl
+Invoking: GCC C++ Linker
+g++  -o "zjl"  ./test1.o  /usr/lib/libmysqlclient.so /usr/lib/libjson_linux-gcc-4.9.1_libmt.a 
+Finished building target: zjl
+ 
+
+16:12:36 Build Finished (took 893ms)
+

@@ -1,0 +1,95 @@
+/*
+ * IoWrite.cpp
+ *
+ *  Created on: 2015年10月26日
+ *      Author: zjl
+ */
+#include"IoWrite.h"
+#include<cstdio>
+#include<unistd.h>
+#include<cstring>
+#include<fcntl.h>
+#include<sys/mman.h>
+#include<cerrno>
+#include<sys/types.h>
+#include<sys/stat.h>
+namespace{
+	void unix_error(char*msg)
+	{
+		fprintf(stderr,"%s:%s\n",msg,strerror(errno));
+		exit(0);
+	}
+	ssize_t rio_write(int fd,void *usrbuf,size_t n){
+		size_t nleft=n;
+		ssize_t nwrite;
+		char *bufp=reinterpret_cast<char *>(usrbuf);
+
+		while( nleft >0){
+			if((nwrite= write(fd,bufp,nleft))<=0){
+				if(errno==EINTR){
+					nwrite=0;
+				}else{
+					return -1;
+				}
+			}
+			nleft-=nwrite;
+			bufp+=nwrite;
+		}
+		return n;
+	}
+
+	void Rio_write(int fd,void *usrbuf,size_t n){
+		if(rio_write(fd,usrbuf,n)!=n){
+			unix_error("Rio_write error");
+		}
+	}
+
+	int Open(const char *pathname,int flags,mode_t mode)
+	{
+		int rc;
+		if((rc == open(pathname,flags,mode))<0){
+			unix_error("open error");
+		}
+		return rc;
+	}
+	void Close(int fd)
+	{
+		int rc;
+		if((rc=close(fd))<0){
+
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+/*
+ * 1-1.cpp
+ *
+ *  Created on: 2015年11月2日
+ *      Author: zjl
+ */
+#include<iostream>
+int main()
+{
+	int i=-1;
+	std::string str;
+	str="kjdsfsdhjf";
+	for(char b : str){
+		std::cout<<b<<std::endl;
+	}
+	int _;
+	int  c;
+	c=i+i;
+	char a[12]="kjasdh";
+	if(i<0)
+	{
+		//std::cout<<c<<std::endl;
+		return -2;
+	}
+	return 0;
+}
+
+
+

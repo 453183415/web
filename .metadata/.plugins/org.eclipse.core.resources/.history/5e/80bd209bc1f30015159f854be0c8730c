@@ -1,0 +1,25 @@
+/*
+ * user.h
+ *
+ *  Created on: 2016年3月27日
+ *      Author: zjl
+ */
+
+#ifndef USER_H_
+#define USER_H_
+#include<sys/socket.h>
+#include<sys/types.h>
+#include<arpa/inet.h>
+#include<iostream>
+#include"ZSql.h"
+#include"../log/log.h"
+#include"readAndwrite/read.h"
+#include"readAndwrite/write.h"
+void user(int fd){
+
+}
+
+
+
+
+#endif /* USER_H_ */

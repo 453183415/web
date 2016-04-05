@@ -1,0 +1,74 @@
+/*
+ * ZSql.h
+ *
+ *  Created on: 2015年8月3日
+ *      Author: zjl
+ */
+
+#ifndef ZSQL_H_
+#define ZSQL_H_
+#include<iostream>
+#include<mysql/mysql.h>
+#include<errno.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<pthread.h>
+
+class ZSql{
+public:
+	ZSql();
+	~ZSql();
+	public :
+		const void setDbName( std:: string sql);
+		const void setUserName( std::string sql );
+		const void setDbIp( std::string sql);
+		const void setDbPasswd(std:: string sql);
+
+	public:
+		bool regsit();
+		MYSQL* getMysql(){
+			return &mysql;
+		}
+	protected:
+		MYSQL mysql;
+	private:
+		 std::string DbName;
+		 std::string UserName;
+		 std::string DbIp;
+		 std::string DbPasswd;
+		 static ZSql * sql;
+};
+ZSql *  ZSql::sql=0;
+ZSql::ZSql(){
+	mysql_init(&mysql);
+}
+
+ZSql::~ZSql(){
+	mysql_close(&mysql);
+}
+
+const void ZSql::setUserName( std::string sql) {
+	UserName=sql;
+}
+const void ZSql::setDbName( std::string sql){
+	DbName = sql;
+}
+const void ZSql::setDbPasswd( std::string sql){
+	DbPasswd=sql;
+}
+const void ZSql::setDbIp( std::string sql){
+	DbIp=sql;
+}
+bool ZSql::regsit(){
+	if(mysql_real_connect(&mysql,DbIp.c_str(),UserName.c_str(),DbPasswd.c_str(),
+			DbName.c_str(),NULL,NULL,0)){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+
+
+
+#endif /* ZSQL_H_ */

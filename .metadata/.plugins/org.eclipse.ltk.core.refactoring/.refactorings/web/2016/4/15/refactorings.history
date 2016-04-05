@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;web.cpp&apos; to &apos;web&apos;" description="Move &apos;web.cpp&apos; to &apos;web&apos;" destination="/web" element1="httpserver/web.cpp" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1459842938743" updateReferences="true"/>
+</session>

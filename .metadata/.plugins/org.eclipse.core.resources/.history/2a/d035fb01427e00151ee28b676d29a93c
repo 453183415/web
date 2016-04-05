@@ -1,0 +1,49 @@
+/*
+ * ppfork.c
+ *
+ *  Created on: 2015年10月27日
+ *      Author: zjl
+ */
+#include<stdio.h>
+#include<unistd.h>
+#include<string.h>
+#include<sys/types.h>
+#include<fcntl.h>
+#include<stdlib.h>
+int main()
+{
+	int fd;
+	char buf[1024];
+	pid_t pid;
+	fd=open("a.txt",O_RDWR|O_TRUNC,0);
+	pid=fork();
+	//while(1){
+	if(pid==0){
+
+		memset(buf,0,sizeof(buf)/sizeof(char));
+		scanf("%s",buf);
+		lseek(fd,0,SEEK_END);
+		write(fd,buf,strlen(buf));
+		//sleep(1);
+		//exit(0);
+		//printf("child's pid=%d\n",getpid());
+wait(NULL);
+	}
+
+	if(pid>0){
+		sleep(3);
+		//memset(buf,0,sizeof(buf)/sizeof(char));
+		lseek(fd,0,SEEK_SET);
+		read(fd,buf,1024);
+		printf("%s",buf);
+
+		//printf("parent's pid=%d\n",getpid());
+	}
+	//}
+
+	return 0;
+
+}
+
+
+

@@ -1,0 +1,15 @@
+16:12:32 **** Incremental Build of configuration Debug for project testsockclient ****
+make all 
+Building file: ../socketFileClient.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"socketFileClient.d" -MT"socketFileClient.d" -o "socketFileClient.o" "../socketFileClient.cpp"
+Finished building: ../socketFileClient.cpp
+ 
+Building target: testsockclient
+Invoking: GCC C++ Linker
+g++  -o "testsockclient"  ./socketFileClient.o   
+Finished building target: testsockclient
+ 
+
+16:12:33 Build Finished (took 740ms)
+

@@ -1,0 +1,50 @@
+/*
+ * echo_server.cpp
+ *
+ *  Created on: 2016年1月10日
+ *      Author: zjl
+ */
+#include"../unix.h"
+void str_echo(int );
+int main(int argc, char ** argv)
+{
+	int listenfd , connfd;
+	pid_t pid;
+	socklen_t cli_len;
+	struct sockaddr_in cliaddr,servaddr;
+	listenfd=socket(AF_INET,SOCK_STREAM,0);
+	bzero(&servaddr,sizeof(servaddr) );
+	servaddr.sin_family=AF_INET;
+	servaddr.sin_port=htons(55555);
+	servaddr.sin_addr.s_addr=htonl(INADDR_ANY);
+	bind(listenfd,(struct sockaddr *)&servaddr, sizeof(servaddr));
+	listen(listenfd,1024);
+	for(;;){
+		cli_len=sizeof(cliaddr);
+		connfd=accept(listenfd,(struct sockaddr *)&cliaddr, &cli_len);
+		if((pid=fork()) == 0){
+//			close(listenfd);
+			str_echo(connfd);
+			exit(0);
+		}
+		close(connfd);
+	}
+
+	return 0;
+}
+
+void str_echo(int fd){
+	ssize_t n;
+	char buf[1024],buf1[1024];
+	again:
+	while( ( n= read( fd,buf,1024) ) >0 ){
+//		bzero(&buf1,sizeof(buf));
+		write(fd,buf,n);
+		std::cout<<buf<<n<<std::endl;
+	}
+	if(n<0 && errno == EINTR)
+		goto again;
+	else if( n< 0)
+		std::cout<<"read error"<< std::endl;
+}
+

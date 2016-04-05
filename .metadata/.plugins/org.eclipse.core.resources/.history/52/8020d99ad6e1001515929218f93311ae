@@ -1,0 +1,14 @@
+/*
+ * tcpServer.cpp
+ *
+ *  Created on: 2016年3月3日
+ *      Author: zjl
+ */
+#include<sys/socket.h>
+#include<sys/types.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<netinet/in.h>
+
+
+

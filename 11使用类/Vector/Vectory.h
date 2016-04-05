@@ -1,0 +1,48 @@
+/*
+ * Vector.h
+ *
+ *  Created on: 2015年8月19日
+ *      Author: zjl
+ */
+
+#ifndef VECTORY_H_
+#define VECTORY_H_
+#include<iostream>
+namespace VECTOR{
+	class Vectory{
+	public:
+		enum Mode{RECT,POL};
+	private:
+		double x;
+		double y;
+		Mode mode;
+	private:
+		double	set_x(double const &n1,double const &n2);
+		double    set_y(double const &n2,double const &n1);
+	public:
+		Vectory();
+		Vectory(double n1, double n2, Mode form=RECT);
+		void reset(double n1,double n2,Mode form=RECT);
+		~Vectory();
+		double xval()const{return x;}
+		double yval()const{return y;}
+		double magval()const;
+		double angval()const;
+		void polar_mode();
+		void rect_mode();
+		Vectory operator +(Vectory const &t)const;
+		Vectory operator -(Vectory const &t)const;
+		Vectory operator -()const;
+		Vectory operator * (  double &t)const;
+		friend Vectory operator *(Vectory const &t ,double n);
+		friend Vectory operator *(double n, const  Vectory  &t);
+		friend std::ostream &operator <<(std::ostream &os, const Vectory &t);
+
+	};
+
+
+}
+
+
+
+#endif /* VECTORY_H_ */

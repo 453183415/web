@@ -1,0 +1,27 @@
+/*
+ * locker.h
+ *
+ *  Created on: 2015年11月3日
+ *      Author: zjl
+ */
+
+#ifndef LOCKER_H_
+#define LOCKER_H_
+
+#include<exception>
+#include<pthread.h>
+#include<semaphore.h>
+#include<iostream>
+class sem{
+	public:
+		sem(){
+			if(sem_init(&m_sem,0,0) != 0){
+				throw std::
+			}
+		}
+	private:
+		sem_t m_sem;
+};
+
+
+#endif /* LOCKER_H_ */

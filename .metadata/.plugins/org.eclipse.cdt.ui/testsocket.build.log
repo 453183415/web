@@ -1,0 +1,15 @@
+16:12:34 **** Incremental Build of configuration Debug for project testsocket ****
+make all 
+Building file: ../socketFileServer.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"socketFileServer.d" -MT"socketFileServer.d" -o "socketFileServer.o" "../socketFileServer.cpp"
+Finished building: ../socketFileServer.cpp
+ 
+Building target: testsocket
+Invoking: GCC C++ Linker
+g++  -o "testsocket"  ./socketFileServer.o   
+Finished building target: testsocket
+ 
+
+16:12:35 Build Finished (took 591ms)
+

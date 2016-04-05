@@ -1,0 +1,45 @@
+/*
+ * test1.cpp
+ *
+ *  Created on: 2015年11月22日
+ *      Author: zjl
+ */
+#include<iostream>
+#include<sys/socket.h>
+#include<arpa/inet.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<string.h>
+
+
+int main()
+{
+	int sockfd,confd;
+	int listenq=1024;
+	int optval=1;
+	struct sockaddr_in serveraddr,clientaddr;
+	char buf[1024];
+	sockfd=socket(AF_INET,SOCK_STREAM,0);
+
+	setsockopt(sockfd,SOL_SOCKET,SO_REUSEADDR,(void * )&optval,sizeof(int));
+	bzero((char *)&serveraddr,sizeof(serveraddr));
+	serveraddr.sin_family = AF_INET;
+	serveraddr.sin_port = htons(1234);
+	serveraddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	bind(sockfd,(struct sockaddr *)&serveraddr,sizeof(sockaddr_in));
+	listen(sockfd,listenq);
+	socklen_t client;
+	client=sizeof(struct sockaddr_in);
+	while(1){
+	confd=accept(sockfd,(struct sockaddr  *)&clientaddr,&client);
+	if(confd<0)
+			std::cout<<"dsfsdf"<<std::endl;
+	int ret=recv(confd,buf,sizeof(buf),0);
+	buf[ret-1]='\0';
+	std::cout << buf<<std::endl;
+	}
+	close(confd);
+}
+
+
+
